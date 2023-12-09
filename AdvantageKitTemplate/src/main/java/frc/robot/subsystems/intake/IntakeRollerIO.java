@@ -7,7 +7,6 @@ public interface IntakeRollerIO {
     public static class IntakeRollerIOInputs {
         public double rollerVelocity = 0.0;
         public double appliedVolts = 0.0;
-
         public double currentAmps = 0.0;
     }
 
