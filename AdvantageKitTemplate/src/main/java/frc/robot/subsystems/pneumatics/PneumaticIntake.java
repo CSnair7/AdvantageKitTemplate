@@ -22,11 +22,8 @@ public class PneumaticIntake extends SubsystemBase {
     this.compressor = compressor;
   }
 
-  // TODO: implement this function to toggle on and off the compressor
-  // Params: none
-  // Return: this function returns void
   public void toggleCompressor() {
-    if (toggle == false) {
+    if (!toggle) {
       compressor.enableCompressor();
       toggle = true;
     } else {
@@ -35,16 +32,10 @@ public class PneumaticIntake extends SubsystemBase {
     }
   }
 
-  // TODO: implement this function to set the double solenoid to the forward position
-  // Params: none
-  // Return: this function returns void
   public void extendIntake() {
     intakeSolenoid.set(Value.kForward);
   }
 
-  // TODO: implement this function to set the double solenoid to the reverse position
-  // Params: none
-  // Return: this function returns void
   public void retractIntake() {
     intakeSolenoid.set(Value.kReverse);
   }
