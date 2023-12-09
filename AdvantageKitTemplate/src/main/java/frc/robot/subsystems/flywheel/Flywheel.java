@@ -14,8 +14,8 @@ public class Flywheel extends SubsystemBase {
   /** Creates a new Flywheel. */
   // TODO: implement this constructor to instantiate the io objects
   // Params: fill in the function parameters as needed by the implementation above
-  public Flywheel(<REPLACE_WITH_PARAM>) {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+  public Flywheel (FlywheelIO io) {
+    this.io = io;
   }
 
   public double getVelocity() {
@@ -26,7 +26,7 @@ public class Flywheel extends SubsystemBase {
   // Param: none
   // Return: this function returns void
   public void stopFlywheel() {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    io.stop();
   }
 
   // TODO: implement this function to set the velocity of the flywheel to a given velocity then Log the target
@@ -34,14 +34,14 @@ public class Flywheel extends SubsystemBase {
   // Param: the velocity the flywheel will be set to
   // Return: this function returns void
   public void setFlywheelVelocity(double velocity) {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    io.setVelocity(velocity);
   }
 
   // TODO: implement this function to set the flywheel to a given voltage
   // Param: fill in the parameters as needed by the implementation above
   // Return: this function returns void
   public void setFlywheelVoltage(double voltage) {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    io.setVoltage(voltage);
   }
 
   @Override

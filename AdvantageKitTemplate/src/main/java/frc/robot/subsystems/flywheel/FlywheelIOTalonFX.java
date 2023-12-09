@@ -5,12 +5,8 @@ import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
-import com.ctre.phoenix6.controls.VelocityVoltage;
-import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
-
-import edu.wpi.first.math.util.Units;
 
 public class FlywheelIOTalonFX implements FlywheelIO{
     private final TalonFX leader;
@@ -47,15 +43,18 @@ public class FlywheelIOTalonFX implements FlywheelIO{
     // Params: object of FlywheelIOInputs 
     // Return: this function returns void
     public void updateInputs(FlywheelIOInputs inputs) {
-       throw Error("Not Implemented Yet"); // remove this line when you start
+       inputs.velocity = velocity.getValue();
+       inputs.appliedVolts = appliedVolts.getValue();
+       inputs.currentAmps[0] = mCurrentAmps.getValue();
+       inputs.currentAmps[1] = mCurrentAmps.getValue(); 
     }
 
     @Override
     // TODO: implement this function to set the lead motor to a certain voltage
     // Params: fill in the function parameters as need by the implementation above
     // Return: this function returns void
-    public void setVoltage(<REPLACE_WITH_PARAM>) {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+    public void setVoltage(double voltage) {
+        leader.setVoltage(voltage);
     }
 
     @Override
@@ -63,7 +62,7 @@ public class FlywheelIOTalonFX implements FlywheelIO{
     // Params: velocity of flywheel
     // Return: this function returns void
     public void setVelocity(double velocity) {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+        leader.set(velocity);
     }
 
     @Override 
@@ -71,7 +70,7 @@ public class FlywheelIOTalonFX implements FlywheelIO{
     // Params: none
     // Return: this function returns void
     public void stop() {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+        leader.set(0.0);
     }
 
     @Override
