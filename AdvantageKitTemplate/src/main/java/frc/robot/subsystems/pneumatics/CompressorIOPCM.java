@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 public class CompressorIOPCM implements CompressorIO{
     private final Compressor compressor;
 
-
     public CompressorIOPCM(int module) {
         compressor  = new Compressor(module, PneumaticsModuleType.CTREPCM);
     }
@@ -16,7 +15,9 @@ public class CompressorIOPCM implements CompressorIO{
     // Params: object of CompressorIOInputs 
     // Return: this function returns void
     public void updateInputs(CompressorIOInputs inputs) {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+        inputs.isOn = compressor.isEnabled();
+        inputs.compressorCurrent = compressor.getCurrent();
+        inputs.compressorPressure = compressor.getPressure();
     }
 
     @Override
@@ -24,7 +25,7 @@ public class CompressorIOPCM implements CompressorIO{
     // Params: none
     // Return: this function returns void
     public void enableCompressor() {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+        compressor.enableDigital();
     }
 
     @Override 
@@ -32,6 +33,6 @@ public class CompressorIOPCM implements CompressorIO{
     // Params: none
     // Return: this function returns void
     public void disableCompressor() {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+        compressor.disable();
     }
 }

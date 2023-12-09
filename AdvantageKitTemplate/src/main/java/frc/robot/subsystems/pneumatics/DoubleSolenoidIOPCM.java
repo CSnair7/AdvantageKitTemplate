@@ -16,14 +16,14 @@ public class DoubleSolenoidIOPCM implements DoubleSolenoidIO {
     // Params: object of DoubleSolenoidIOInputs 
     // Return: this function returns void
     public void updateInputs(DoubleSolenoidIOInputs inputs) {
-        thorw Error("Not Implemented Yet"); // remove this line when you start
+        inputs.val = dSolenoid.get();
     }
 
     @Override
     // TODO: implement this function the set the Value of the DoubleSolenoid object
     // Params: fill in the functon parameters as needed by the implementation above
     // Return: this function returns void
-    public void set(<REPLACE_WITH_PARAMS>) {
-        throw Error("Not Implemented Yet"); // remove this line when you start
+    public void set(Value value) {
+        dSolenoid.set(value);
     }
 }

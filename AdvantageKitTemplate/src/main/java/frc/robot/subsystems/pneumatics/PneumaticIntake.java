@@ -26,21 +26,27 @@ public class PneumaticIntake extends SubsystemBase {
   // Params: none
   // Return: this function returns void
   public void toggleCompressor() {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    if (toggle == false) {
+      compressor.enableCompressor();
+      toggle = true;
+    } else {
+      compressor.disableCompressor();
+      toggle = false;
+    }
   }
 
   // TODO: implement this function to set the double solenoid to the forward position
   // Params: none
   // Return: this function returns void
   public void extendIntake() {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    intakeSolenoid.set(Value.kForward);
   }
 
   // TODO: implement this function to set the double solenoid to the reverse position
   // Params: none
   // Return: this function returns void
   public void retractIntake() {
-    throw Error("Not Implemented Yet"); // remove this line when you start
+    intakeSolenoid.set(Value.kReverse);
   }
 
   public void stopIntake() {
