@@ -16,7 +16,7 @@ public interface IntakePivotIO {
     
     public default void setPosition(double position) {}
 
-    public default void setVelocity(double veloicty) {}
+    public default void setVelocity(double velocity) {}
 
     public default void stop() {}
 
