@@ -7,6 +7,7 @@ public interface IntakePivotIO {
     public static class IntakePivotIOInputs {
         public double pivotPosition = 0.0;
         public double pivotVelocity = 0.0;
+
         public double appliedVolts = 0.0;
         public double currentAmps = 0.0;
     }

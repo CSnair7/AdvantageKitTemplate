@@ -32,9 +32,6 @@ public class Intake extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  // TODO: implement this function to set the rollers to run at the specified velocity
-  // Param: velocity of rollers
-  // Return: this function returns void
   public void runRollers(double velocity) {
     roller.setVelocity(velocity); // remove this line when you start
   }
@@ -43,7 +40,7 @@ public class Intake extends SubsystemBase {
   // Param: none
   // Return: this function returns void
   public void stopRollers() {
-    roller.setVelocity(0);
+    roller.stop();
   }
 
   // TODO: implement this function to stop the pivot motor
@@ -54,10 +51,12 @@ public class Intake extends SubsystemBase {
   }
 
   // TODO: implement this function to set the position of the pivot motor to a given position value then Log the target
-  //       position value (see periodic function for hint on how to log)
+  // position value (see periodic function for hint on how to log)
   // Param: the position the pivot will be set to
   // Return: this function returns void
   public void setPosition(double position) {
     pivot.setPosition(position);
+    
+    Logger.recordOutput("Pivot Target", position); 
   }
 }
